@@ -1,0 +1,73 @@
+import os
+import numpy as np
+pat = [1,2,3,4,5,6,7,8,9]
+rgb = "D:/M2/Traitement_image/NEWDATA_NEWLIFE/fullTracks/RGBdatabase/"
+bnr = "D:/M2/Traitement_image/NEWDATA_NEWLIFE/fullTracks/Binarydatabase/"
+
+fichier = open("Train.txt", "w")
+fichier.close()
+lines=[[], [],[],[],[], [],[],[], [],[],[]]
+for o in pat:
+    s = 0
+    pati = str(o)
+    
+    
+    fichier1 = open(bnr+pati+"/HOG.txt", "r")
+    lines[int(o)-1] = fichier1.readlines()
+    fichier1.close()
+
+#print(lines[1])
+tete = []
+mo = np.array([])
+for tt in lines[0]:
+    tete = tt
+    break
+kh = 0
+for g in lines:
+    #print(g[0])
+    lines[kh] = g[1:]
+    kh+=1
+kh= 0
+hi =0
+import random
+fichier = open("Train.txt", "a")
+fichier.write(tete)
+fichier.close
+
+for g in lines:
+    ml = 0
+    for t in g:
+        ml += 1
+        if ml == len(g):
+            mo = np.append(mo, t+"\n")
+        else:
+            mo = np.append(mo, t)
+for r in mo:
+   
+    k = random.choice(mo)
+    for cha in k.split(","):
+            hi+=1
+    if hi != 102 :
+        print(hi)
+    hi = 0
+    fichier = open("Train.txt", "a")
+    fichier.write(k)
+    fichier.close
+    l = np.where(mo == k)
+    mo = np.delete(mo,l)
+gf = 0
+fichier = open("Train.txt", "r")
+liner = fichier.readlines()
+for h in liner:
+    gf += 1
+    for hh in h.split(","):
+        hi+=1
+    if hi != 102 :
+        print("train",hi)
+        #print(h)
+        print(gf)
+    hi = 0
+    
+
+
+   
