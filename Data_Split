@@ -101,7 +101,7 @@ for path, dirs, files in os.walk("binary"):
                         for pp, di, fi in os.walk(out+str(4)):
                             poo = str(len(fi)+1)"""
                         
-        """"if file == "pets2006":
+        if file == "pets2006":
             shutil.copytree(k+"/1",out+str(5))
             shutil.copytree(k1+"/1",out1+str(5))
             
