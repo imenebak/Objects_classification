@@ -1,0 +1,216 @@
+"""
+class :
+1  ===  bike
+2  ===  boat
+3  ===  canoe
+4  ===  car
+5  ===  human
+6  ===  noise
+7  ===  pickup
+8  ===  truck
+9  ===  van
+
+"""
+
+import os, shutil
+a = "h"
+path1="D:/M2/Traitement_image/NEWDATA_NEWLIFE/fullTracks/RGB"
+out = "Binarydatabase/"
+out1 = "RGBdatabase/"
+
+i = 0
+
+for path, dirs, files in os.walk("binary"):
+    for file in dirs:
+        print(file)
+        k = path+"/"+file
+        k1 = path1+"/"+file
+        if file == "Pedestrain":
+            km = k+"/4"
+            km1 = k1 +"/4"
+            shutil.copytree(km,out+str(1))
+            shutil.copytree(km1,out1+str(1))
+            
+            
+        elif file == "boats":
+            km = k+"/1"
+            km1 = k1 +"/1"
+            shutil.copytree(km,out+str(2))
+            shutil.copytree(km1,out1+str(2))
+        elif file == "canoe":
+            km = k+"/1"
+            km1 = k1 +"/1"
+            shutil.copytree(km,out+str(3))
+            shutil.copytree(km1,out1+str(3))
+        elif file == "blizzard" :
+            shutil.copytree(k+"/1",out+str(4))
+            shutil.copytree(k1+"/1",out1+str(4))
+            for i in range(2,8):
+                for p, di, f in os.walk(k+"/"+str(i)):
+                    for ho in f:
+                        shutil.copyfile(k+"/"+str(i)+"/"+ho,out+str(4)+"/"+ho)
+                        shutil.copyfile(k1+"/"+str(i)+"/"+ho,out1+str(4)+"/"+ho)
+            for pp, di, fi in os.walk(out+str(4)):
+                poo = str(len(fi)+1)
+            for p, di, f in os.walk("binary"):
+                for l in di:
+                    #print(l)
+                    if (l == "fall4" )|(l == "fall5" ):
+                        for p, di, fa in os.walk(path+"/"+l+"/2"):
+                            for fg in fa:
+                                ph = out+str(22)+"/"+poo+".png"
+                                ph1 = out+str(33)+"/"+poo+".png"
+                                shutil.copyfile(path+"/"+l+"/2/"+fg,out+str(22)+"/"+fg)
+                                shutil.copyfile(path1+"/"+l+"/2/"+fg,out+str(33)+"/"+fg)
+                                os.rename(out+str(22)+"/"+fg, ph)
+                                os.rename(out+str(33)+"/"+fg, ph1)
+                                pn = out+str(4)+"/"+poo+".png"
+                                pn1 = out1+str(4)+"/"+poo+".png"
+                                shutil.move(ph,pn)
+                                shutil.move(ph1,pn1)
+                        for pp, di, fi in os.walk(out+str(4)):
+                            poo = str(len(fi)+1)
+                    elif (l == "boulevard"):
+                        for p, di, fa in os.walk(path+"/"+l+"/3"):
+                            for fg in fa:
+                                ph = out+str(22)+"/"+poo+".png"
+                                ph1 = out+str(33)+"/"+poo+".png"
+                                shutil.copyfile(path+"/"+l+"/3/"+fg,out+str(22)+"/"+fg)
+                                shutil.copyfile(path1+"/"+l+"/3/"+fg,out+str(33)+"/"+fg)
+                                os.rename(out+str(22)+"/"+fg, ph)
+                                os.rename(out+str(33)+"/"+fg, ph1)
+                                pn = out+str(4)+"/"+poo+".png"
+                                pn1 = out1+str(4)+"/"+poo+".png"
+                                shutil.move(ph,pn)
+                                shutil.move(ph1,pn1)
+                        for pp, di, fi in os.walk(out+str(4)):
+                            poo = str(len(fi)+1)
+                    elif (l == "fall1")|(l == "fall3"):
+                        for p, di, fa in os.walk(path+"/"+l+"/1"):
+                            for fg in fa:
+                                ph = out+str(22)+"/"+poo+".png"
+                                ph1 = out+str(33)+"/"+poo+".png"
+                                shutil.copyfile(path+"/"+l+"/1/"+fg,out+str(22)+"/"+fg)
+                                shutil.copyfile(path1+"/"+l+"/1/"+fg,out+str(33)+"/"+fg)
+                                os.rename(out+str(22)+"/"+fg, ph)
+                                os.rename(out+str(33)+"/"+fg, ph1)
+                                pn = out+str(4)+"/"+poo+".png"
+                                pn1 = out1+str(4)+"/"+poo+".png"
+                                shutil.move(ph,pn)
+                                shutil.move(ph1,pn1)
+                        for pp, di, fi in os.walk(out+str(4)):
+                            poo = str(len(fi)+1)"""
+                        
+        """"if file == "pets2006":
+            shutil.copytree(k+"/1",out+str(5))
+            shutil.copytree(k1+"/1",out1+str(5))
+            
+            for i in range(2,6):
+                for p, di, f in os.walk(k+"/"+str(i)):
+                    for ho in f:
+                        shutil.copyfile(k+"/"+str(i)+"/"+ho,out+str(5)+"/"+ho)
+                        shutil.copyfile(k1+"/"+str(i)+"/"+ho,out1+str(5)+"/"+ho)
+            for p, d, f in os.walk(out+str(5)):
+                mp = str(len(f)+1)
+            for pp, di, fi in os.walk("binary"):
+                #print(di)
+                for l in di:
+                    #print(l)
+                    if (l == "Pedestrain"):
+                        for i in range(1,4):
+                            kj = path+"/"+l+"/"+str(i)
+                            kj1 = path1+"/"+l+"/"+str(i)
+                            for p, di, fa in os.walk(kj):
+                                for fg in fa:
+                                    ph = out+str(22)+"/"+mp+".png"
+                                    ph1 = out+str(33)+"/"+mp+".png"
+                                    shutil.copyfile(kj+"/"+fg,out+str(22)+"/"+fg)
+                                    shutil.copyfile(kj1+"/"+fg,out+str(33)+"/"+fg)
+                                    os.rename(out+str(22)+"/"+fg, ph)
+                                    os.rename(out+str(33)+"/"+fg, ph1)
+                                    pn = out+str(5)+"/"+mp+".png"
+                                    pn1 = out1+str(5)+"/"+mp+".png"
+                                    shutil.move(ph,pn)
+                                    shutil.move(ph1,pn1)
+                            for pp, di, fi in os.walk(out+str(5)):
+                                mp = str(len(fi)+1)
+                    elif (l == "skating"):
+                        for i in range(1,4):
+                            kj = path+"/"+l+"/"+str(i)
+                            kj1 = path1+"/"+l+"/"+str(i)
+                            for p, di, fa in os.walk(kj):
+                                for fg in fa:
+                                    ph = out+str(22)+"/"+mp+".png"
+                                    ph1 = out+str(33)+"/"+mp+".png"
+                                    shutil.copyfile(kj+"/"+fg,out+str(22)+"/"+fg)
+                                    shutil.copyfile(kj1+"/"+fg,out+str(33)+"/"+fg)
+                                    os.rename(out+str(22)+"/"+fg, ph)
+                                    os.rename(out+str(33)+"/"+fg, ph1)
+                                    pn = out+str(5)+"/"+mp+".png"
+                                    pn1 = out1+str(5)+"/"+mp+".png"
+                                    shutil.move(ph,pn)
+                                    shutil.move(ph1,pn1)
+                            for pp, di, fi in os.walk(out+str(5)):
+                                mp = str(len(fi)+1)
+                    elif (l == "fall5") :
+                        kj = path+"/"+l+"/1"
+                        kj1 = path1+"/"+l+"/1"
+                        for p, di, fa in os.walk(kj):
+                            for fg in fa:
+                                ph = out+str(22)+"/"+mp+".png"
+                                ph1 = out+str(33)+"/"+mp+".png"
+                                shutil.copyfile(kj+"/"+fg,out+str(22)+"/"+fg)
+                                shutil.copyfile(kj1+"/"+fg,out+str(33)+"/"+fg)
+                                os.rename(out+str(22)+"/"+fg, ph)
+                                os.rename(out+str(33)+"/"+fg, ph1)
+                                pn = out+str(5)+"/"+mp+".png"
+                                pn1 = out1+str(5)+"/"+mp+".png"
+                                shutil.move(ph,pn)
+                                shutil.move(ph1,pn1)
+                        for pp, di, fi in os.walk(out+str(5)):
+                            mp = str(len(fi)+1)
+
+        elif file == "fall5":
+            km1 = k1 +"/3"
+            shutil.copytree(k+"/3",out+str(6))
+            shutil.copytree(km1,out1+str(6))
+
+            
+        elif file == "fall2":
+            shutil.copytree(k+"/1",out+str(7))
+            shutil.copytree(k1+"/1",out1+str(7))
+            
+        if file == "boulevard":
+            shutil.copytree(k+"/1",out+str(9))
+            shutil.copytree(k1+"/1",out1+str(9))
+            shutil.copytree(k+"/2",out+str(8))
+            shutil.copytree(k1+"/2",out1+str(8))
+            for p, d, f in os.walk(out+str(8)):
+                mp = str(len(f))
+            for pp, di, fi in os.walk("binary"):
+                #print(di)
+                for l in di:
+                    #print(l)
+                    if (l == "fall4"):
+                        #shutil.rmtree(out+str(22))
+                        kj = path+"/"+l+"/1"
+                        kj1 = path1+"/"+l+"/1"
+                        for p, di, fa in os.walk(kj):
+                            for fg in fa:
+                                ph = out+str(22)+"/"+mp+".png"
+                                ph1 = out+str(33)+"/"+mp+".png"
+                                shutil.copyfile(kj+"/"+fg,out+str(22)+"/"+fg)
+                                shutil.copyfile(kj1+"/"+fg,out+str(33)+"/"+fg)
+                                os.rename(out+str(22)+"/"+fg,ph)
+                                os.rename(out+str(33)+"/"+fg,ph1)
+                                pn = out+str(8)+"/"+mp+".png"
+                                pn1 = out1+str(8)+"/"+mp+".png"
+                                shutil.move(ph,pn)
+                                shutil.move(ph1,pn1)
+                        for pp, di, fi in os.walk(out+str(8)):
+                            mp = str(len(fi)+1)
+"""shutil.rmtree("binary/"+str(22))
+shutil.rmtree("binary/"+str(33))"""
+        
+
+        
