@@ -1,0 +1,23 @@
+import cv2, os
+from sklearn.cluster import KMeans
+
+rgb = "D:/M2/Traitement_image/NEWDATA_NEWLIFE/fullTracks/RGBdatabase"
+def detect_keypoints(filename):
+        img = cv2.imread(filename)
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+        img = cv2.resize(img, (200,200))
+        sift = cv2.xfeatures2d.SIFT_create()
+        kp, des = sift.detectAndCompute(img,None)
+        #print(des.shape)
+        #print(des)
+        print(des)
+        if des is not None:
+            print(des.shape)
+            kmeans = KMeans(n_clusters=1, random_state=0).fit(des)
+            #print(kmeans)
+            return kmeans.cluster_centers_
+        else:
+            print("merde")
+            os.remove(filename)
+            os.remove(rgb+"/"+filename)
+            
