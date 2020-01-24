@@ -1,0 +1,5 @@
+Tous les objets en mouvement ont été extraits de la base d’images donnée en cours. Pour chaque objet, sa trajectoire est aussi extraite.
+Toutes les trajectoires de chaque objet en mouvement sont mises dans le dossier fullTracks. A l’intérieur de ce dossier, les trajectoires d’objets sont mis dans :
+- Les objets en couleurs sont mis dans le dossier RGB_fullTracks
+- Les objets en binaire sont mis dans le dossier binary_fullTracks issus de la soustraction de fond.
+A l’intérieur de dossiers RGB_fullTracks et binary_fullTracks, sont mis les noms de vidéos. A l’intérieur des noms de vidéos, sont mis les noms de trajectoires (un numéro séquentiel), a l’intérieur des noms de trajectoires sont mis les objets avec comme nom, le numéro de trame dans laquelle ils apparaissent.
